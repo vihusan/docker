@@ -9,7 +9,7 @@ services:
     restart: always
     ports: 
     - 23306:3306
-    enviroment: 
+    environment: 
       MYSQL_ROOT_PASSWORD : "udemyCurso"
     volumes:
       - ./schemas:/var/lib/mysql:rw
@@ -21,6 +21,6 @@ services:
 volumes: 
   schemas : {}
 networks:
-  mysql_networks: 
+  mysql_network: 
     name : mysql_net
     driver : bridge
