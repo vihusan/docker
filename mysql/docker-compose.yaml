@@ -1,0 +1,26 @@
+version "3.8"
+
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: DockerFile
+    container_name : mysql_curso
+    restart: always
+    ports: 
+    - 23306:3306
+    enviroment: 
+      MYSQL_ROOT_PASSWORD : "udemyCurso"
+    volumes:
+      - ./schemas:/var/lib/mysql:rw
+    networks:
+      mysql_network:
+        aliases: 
+          - mysql_host
+
+volumes: 
+  schemas : {}
+networks:
+  mysql_networks: 
+    name : mysql_net
+    driver : bridge
